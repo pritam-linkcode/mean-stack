@@ -1,6 +1,7 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -11,7 +12,10 @@ export class UsersComponent {
 
   users: any = [];
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {
   }
 
   getUsers() {
@@ -35,5 +39,9 @@ export class UsersComponent {
       error: (err: any) => {
       },
     });
+  }
+
+  goToAddUser() {
+    this.router.navigate(['/add-user']);
   }
 }

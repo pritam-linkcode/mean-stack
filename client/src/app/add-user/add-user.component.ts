@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-user',
@@ -14,7 +15,8 @@ export class AddUserComponent {
   }
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {}
 
   createUser() {
@@ -28,6 +30,10 @@ export class AddUserComponent {
         console.log(err);
       },
     })
+  }
+
+  goToViewUsers() {
+    this.router.navigate(['/users']);
   }
 
 }

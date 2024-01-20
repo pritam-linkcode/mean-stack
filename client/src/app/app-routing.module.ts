@@ -4,6 +4,7 @@ import { UsersComponent } from './users/users.component';
 import { AddUserComponent } from './add-user/add-user.component';
 
 export const routes: Routes = [
+    { path: '', redirectTo: 'users', pathMatch: "full"},
     { path: 'users', component: UsersComponent },
     { path: 'add-user', component: AddUserComponent}
 ];
