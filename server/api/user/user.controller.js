@@ -57,3 +57,12 @@ exports.deleteUserById = (req, res, next) => {
         });
     });
 };
+
+exports.updateUser = (req, res, next) => {
+    UserModel.findByIdAndUpdate(req.params.id, req.body)
+        .then((result) => {
+            res.status(202).json({ msg: 'User updated', data: result });
+        }).catch(err => {
+            res.status(404).json({ msg: 'User not found' });
+        });
+};
