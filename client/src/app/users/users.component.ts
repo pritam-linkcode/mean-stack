@@ -11,11 +11,6 @@ export class UsersComponent {
 
   users: any = [];
 
-  newUser = {
-    firstName: '',
-    lastName: '',
-  }
-
   constructor(private http: HttpClient) {
   }
 
@@ -29,20 +24,6 @@ export class UsersComponent {
       error: (err) => {
         console.log(err);
       }
-    })
-  }
-
-  createUser() {
-    this.http.post('http://localhost:3000/users', this.newUser).subscribe({
-      next: (res: any) => {
-        console.log(res);
-        this.newUser.firstName = '';
-        this.newUser.lastName = '';
-        this.getUsers();
-      },
-      error: (err) => {
-        console.log(err);
-      },
     })
   }
 
