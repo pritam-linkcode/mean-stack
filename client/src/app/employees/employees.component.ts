@@ -4,13 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrl: './users.component.scss'
+  selector: 'app-employees',
+  templateUrl: './employees.component.html',
+  styleUrl: './employees.component.scss'
 })
-export class UsersComponent {
+export class EmployeesComponent {
 
-  users: any = [];
+  employees: any = [];
 
   constructor(
     private http: HttpClient,
@@ -18,12 +18,12 @@ export class UsersComponent {
   ) {
   }
 
-  getUsers() {
-    this.http.get('http://localhost:3000/users').subscribe({
+  getEmployees() {
+    this.http.get('http://localhost:3000/employees').subscribe({
       next: (res: any) => {
         console.log(res);
 
-        this.users = res.users;
+        this.employees = res.employees;
       },
       error: (err) => {
         console.log(err);
@@ -31,17 +31,17 @@ export class UsersComponent {
     })
   }
 
-  deleteUser(id: any) {
-    this.http.delete('http://localhost:3000/users/' + id).subscribe({
+  deleteEmployee(id: any) {
+    this.http.delete('http://localhost:3000/employees/' + id).subscribe({
       next: (res: any) => {
-        this.getUsers();
+        this.getEmployees();
       },
       error: (err: any) => {
       },
     });
   }
 
-  goToAddUser() {
-    this.router.navigate(['/add-user']);
+  goToAddEmployee() {
+    this.router.navigate(['/add-employee']);
   }
 }

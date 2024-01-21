@@ -9,7 +9,7 @@ mongoose.connect(process.env.MONGODB).then(() => {
   console.log('Error connecting to Mongo');
 });
 
-var usersRouter = require('./api/user/user.route');
+var employeesRouter = require('./api/employee/employee.route');
 
 var app = express();
 
@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 
-app.use('/users', usersRouter);
+app.use('/employees', employeesRouter);
 
 app.listen(3000, () => {
   console.log('listening on http://localhost:3000');
