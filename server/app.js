@@ -10,6 +10,7 @@ mongoose.connect(process.env.MONGODB).then(() => {
 });
 
 var employeesRouter = require('./api/employee/employee.route');
+var usersRouter = require('./api/user/user.route');
 
 var app = express();
 
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 app.use('/employees', employeesRouter);
+app.use('/users', usersRouter);
 
 app.listen(3000, () => {
   console.log('listening on http://localhost:3000');
