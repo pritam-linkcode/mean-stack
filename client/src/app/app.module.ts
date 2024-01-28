@@ -9,6 +9,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AddEmployeeComponent } from "./add-employee/add-employee.component";
 import { RegisterComponent } from "./register/register.component";
 import { LoginComponent } from "./login/login.component";
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import { LoginComponent } from "./login/login.component";
         EmployeesComponent,
         AddEmployeeComponent,
         RegisterComponent,
-        LoginComponent
+        LoginComponent,
+        EditEmployeeComponent
     ],
     imports: [
         CommonModule,
