@@ -21,6 +21,7 @@ export class LoginComponent {
   login() {
     this.http.post('http://localhost:3000/users/login', this.newUser).subscribe({
       next: (res: any) => {
+        localStorage.setItem('user', JSON.stringify(res));
         this.router.navigate(['employees']);
       },
       error: (error: any) => {

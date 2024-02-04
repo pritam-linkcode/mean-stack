@@ -49,4 +49,9 @@ export class EmployeesComponent implements OnInit {
   goToAddEmployee() {
     this.router.navigate(['/add-employee']);
   }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login'])
+  }
 }
